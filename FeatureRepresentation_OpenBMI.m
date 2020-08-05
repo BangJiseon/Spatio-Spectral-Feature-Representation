@@ -2,8 +2,8 @@ clear all; close all; clc;
 
 num_sp=25;
 chnum=20;
-train_data=zeros(100,20,20,num_sp);
-test_data=zeros(100,20,20,num_sp);
+train_data=zeros(100,chnum,chnum,num_sp);
+test_data=zeros(100,chnum,chnum,num_sp);
     
 load(['electrode_position.mat']);
 data.nfo.pos_3d=pos_3d.data';

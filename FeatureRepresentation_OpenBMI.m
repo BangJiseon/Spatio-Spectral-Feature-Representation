@@ -5,7 +5,7 @@ chnum=20;
 train_data=zeros(100,chnum,chnum,num_sp);
 test_data=zeros(100,chnum,chnum,num_sp);
     
-load(['electrode_position.mat']);
+load(['WHERE\IS\DATA\electrode_position.mat']);
 data.nfo.pos_3d=pos_3d.data';
 MNT.clab=pos_3d.textdata';
 MNT.pos_3d=pos_3d.data';
@@ -13,15 +13,15 @@ MNT.pos_3d=pos_3d.data';
 for sub=1:54
     %% load data
     if sub<10
-        load(['E:\TNNLS\sess01_subj0',num2str(sub),'_EEG_MI.mat']);
+        load(['WHERE\IS\DATA\sess01_subj0',num2str(sub),'_EEG_MI.mat']);
     else
-        load(['E:\TNNLS\sess01_subj',num2str(sub),'_EEG_MI.mat']);
+        load(['WHERE\IS\DATA\sess01_subj',num2str(sub),'_EEG_MI.mat']);
     end
     %% load filter-set    
     if sub<10
-        load(['filterset_sess01_subj0',num2str(sub),'.mat'])
+        load(['WHERE\IS\DATA\filterset_sess01_subj0',num2str(sub),'.mat'])
     else
-        load(['filterset_sess01_subj',num2str(sub),'.mat'])
+        load(['WHERE\IS\DATA\filterset_sess01_subj',num2str(sub),'.mat'])
     end
 
     %% stack nscm

@@ -3,13 +3,15 @@
 ## Modules
  We provide Matlab and Python implementation for generating feature representation and classification.
 
-'Filterset_OpenBMI.m' : code for generating filter-set. 
+'Filterset_OpenBMI.m' : Code for generating filter-set. 
 
-'FeatureRepresentation_OpenBMI.m' : code for generating feature representation.
+'FeatureRepresentation_OpenBMI.m' : Code for generating feature representation.
 
-'Classification_OpenBMI.py' : code for classification.
+'Classification_OpenBMI.py' : Code for classification.
 
 'func_mutual_information2.m', 'prep_filterbank2.m' : The following two files are slightly modified from the original toolbox.
+
+'electrode_position.mat' : Data indicating the location of a channels. Used for local average reference.
 
 
 ## Dataset Reference

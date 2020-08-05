@@ -71,6 +71,6 @@ for sub in range(1, 2):  # 1,10
             #print(100 * np.mean(np.argmax(teY, axis=1) == sess.run(predict_op, feed_dict={x: teX, y_: teY, p_keep_conv: 1.0, p_keep_hidden: 1.0})))
             acc[i] = 100 * np.mean(np.argmax(teY, axis=1) == sess.run(predict_op, feed_dict={x: teX, y_: teY, p_keep_conv: 1.0, p_keep_hidden: 1.0}))
 
-        sio.savemat('result_sess01_subj0%d.mat' % (sub), {"tracc": tracc, "acc": acc})
+        sio.savemat('result_sess1_subj0%d.mat' % (sub), {"tracc": tracc, "acc": acc})
 
 

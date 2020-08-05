@@ -1,5 +1,7 @@
-# Modules for decoding EEG signal
-Matlab and Python implementation for generating feature representation and classification.
+# Spatio-Spectral Feature Representation for Motor Imagery Classification using Convolutional Neural Networks
+
+## Modules
+ We provide Matlab and Python implementation for generating feature representation and classification.
 
 'Filterset_OpenBMI.m' : codes for generating filter-set. 
 

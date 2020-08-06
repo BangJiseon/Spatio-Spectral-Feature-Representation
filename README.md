@@ -12,9 +12,9 @@
 
 'Classification_OpenBMI.py' : Code for classification.
 
-'func_mutual_information2.m', 'prep_filterbank2.m' : The following two files are slightly modified from the original toolbox.
+'func_mutual_information2.m', 'prep_filterbank2.m' : The following two files are slightly modified version from the original toolbox.
 
-'electrode_position.mat' : Data indicating the location of a channels. Used for local average reference.
+'electrode_position.mat' : Data indicating the location of channels. Used for local average reference function.
 
 ## Requirements
 Matlab R2017a or later

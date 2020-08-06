@@ -13,6 +13,10 @@
 
 'electrode_position.mat' : Data indicating the location of a channels. Used for local average reference.
 
+## Requirements
+Matlab R2017a or later
+Python 3 (Tensorflow==1.15.0)
+
 
 ## Dataset Reference
 Please refer to http://gigadb.org/dataset/100542 to download OpenBMI dataset.

@@ -24,7 +24,8 @@ Please refer to http://gigadb.org/dataset/100542 to download OpenBMI dataset.
 
 
 ## Toolbox Reference
-Please refer to https://github.com/PatternRecognition/OpenBMI and https://github.com/bbci/bbci_public to download the toolbox that we used.
+Please refer to https://github.com/PatternRecognition/OpenBMI and 
+https://github.com/bbci/bbci_public to download the toolbox that we used.
 
 
 ## License

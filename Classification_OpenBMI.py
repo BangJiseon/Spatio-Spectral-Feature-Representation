@@ -2,17 +2,17 @@ import tensorflow as tf
 import numpy as np
 import scipy.io as sio
 
-for sub in range(1, 2):  # 1,10
-    kernel1=2
-    kernel2=2
+for sub in range(1, 55):  # 1,10
+    kernel1=3
+    kernel2=3
 
     tf.reset_default_graph()
     tf.set_random_seed(1230)
 
     if sub<10:
-        mat_data = sio.loadmat('H:\TNNLS_github/feature_representation_sess01_subj0%d.mat' % (sub))
+        mat_data = sio.loadmat('WHERE\IS\DATA\/feature_representation_sess01_subj0%d.mat' % (sub))
     else:
-        mat_data = sio.loadmat('H:\TNNLS_github/feature_representation_sess01_subj%d.mat' % (sub))
+        mat_data = sio.loadmat('WHERE\IS\DATA\/feature_representation_sess01_subj%d.mat' % (sub))
 
     trX = mat_data['train_data']
     trY = mat_data['train_labels']
@@ -71,6 +71,6 @@ for sub in range(1, 2):  # 1,10
             #print(100 * np.mean(np.argmax(teY, axis=1) == sess.run(predict_op, feed_dict={x: teX, y_: teY, p_keep_conv: 1.0, p_keep_hidden: 1.0})))
             acc[i] = 100 * np.mean(np.argmax(teY, axis=1) == sess.run(predict_op, feed_dict={x: teX, y_: teY, p_keep_conv: 1.0, p_keep_hidden: 1.0}))
 
-        sio.savemat('result_sess1_subj0%d.mat' % (sub), {"tracc": tracc, "acc": acc})
+        sio.savemat('result_sess1_subj%d.mat' % (sub), {"tracc": tracc, "acc": acc})
 
 

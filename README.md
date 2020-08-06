@@ -3,6 +3,9 @@
 ## Modules
  We provide Matlab and Python implementation for generating feature representation and classification.
 
+ Below is the description of each file.
+ 
+
 'Filterset_OpenBMI.m' : Code for generating filter-set. 
 
 'FeatureRepresentation_OpenBMI.m' : Code for generating feature representation.

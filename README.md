@@ -21,7 +21,7 @@ Matlab R2017a or later
 
 Python 3 
 
- - Tensorflow >= 1.15.0
+ - tensorflow-gpu == 1.11.0
  - numpy >= 1.17.5
  - scipy >= 1.1.0
  - scikit-learn >= 0.22.2

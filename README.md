@@ -6,19 +6,21 @@
  Belows are the description of each file.
  
 
-'Filterset_OpenBMI.m' : Code for generating filter-set. 
+ - 'Filterset_OpenBMI.m' : Code for generating filter-set. 
 
-'FeatureRepresentation_OpenBMI.m' : Code for generating feature representation.
+ - 'FeatureRepresentation_OpenBMI.m' : Code for generating feature representation.
 
-'Classification_OpenBMI.py' : Code for classification.
+ - 'Classification_OpenBMI.py' : Code for classification.
 
-'func_mutual_information2.m', 'prep_filterbank2.m' : The following two files are slightly modified versions from the original toolbox.
+ - 'func_mutual_information2.m', 'prep_filterbank2.m' : The following two files are slightly modified versions from the original toolbox.
 
-'electrode_position.mat' : Data indicating the location of channels. Used for local average reference function.
+ - 'electrode_position.mat' : Data indicating the location of channels. Used for local average reference function.
 
 ## Requirements
 Matlab R2017a or later
+
 Python 3 
+
  - Tensorflow >= 1.15.0
  - numpy >= 1.17.5
  - scipy >= 1.1.0

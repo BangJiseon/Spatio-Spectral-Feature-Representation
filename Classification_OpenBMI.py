@@ -1,18 +1,14 @@
+#!/usr/bin/env python
+
 import tensorflow as tf
 import numpy as np
 import scipy.io as sio
-
 for sub in range(1, 55):  # 1,10
-    kernel1=3
-    kernel2=3
 
     tf.reset_default_graph()
     tf.set_random_seed(1230)
 
-    if sub<10:
-        mat_data = sio.loadmat('WHERE\IS\DATA\/feature_representation_sess01_subj0%d.mat' % (sub))
-    else:
-        mat_data = sio.loadmat('WHERE\IS\DATA\/feature_representation_sess01_subj%d.mat' % (sub))
+    mat_data = sio.loadmat('WHERE/IS/DATA/feature_representation_sess01_subj%d.mat' % (sub))
 
     trX = mat_data['train_data']
     trY = mat_data['train_labels']
@@ -40,12 +36,16 @@ for sub in range(1, 55):  # 1,10
 
     x = tf.placeholder("float", [None, 20, 20, 25, 1])  # 38 19 10  5
     y_ = tf.placeholder("float", [None, 2])
-
+    
+    kernel1=3
+    kernel2=3
     feature_map1=50
     feature_map2=100
 
-    w = tf.get_variable("w", shape=[kernel1, kernel1, kernel2, 1, feature_map1],initializer=tf.truncated_normal_initializer(stddev=0.01))
-    w2 = tf.get_variable("w2", shape=[21-kernel1, 21-kernel1, 26-kernel2, feature_map1, feature_map2],initializer=tf.truncated_normal_initializer(stddev=0.01))
+    w = tf.get_variable("w", shape=[kernel1, kernel1, kernel2, 1, feature_map1], #[16, 16, 12, 1, 16],
+                        initializer=tf.truncated_normal_initializer(stddev=0.01))
+    w2 = tf.get_variable("w2", shape=[21-kernel1, 21-kernel1, 26-kernel2, feature_map1, feature_map2],#[7, 7, 4, 16, 32],
+                         initializer=tf.truncated_normal_initializer(stddev=0.01))
     w3 = tf.get_variable("w3", shape=[feature_map2, feature_map2], initializer=tf.truncated_normal_initializer(stddev=0.01))
     w_o = tf.get_variable("w_o", shape=[feature_map2, 2], initializer=tf.truncated_normal_initializer(stddev=0.01))
 
@@ -58,19 +58,19 @@ for sub in range(1, 55):  # 1,10
 
     accuracy = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1)), tf.float32))
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=y, labels=y_))
-    train_op = tf.train.AdamOptimizer(0.001).minimize(cost)
+    train_op = tf.train.AdamOptimizer(0.0001).minimize(cost)
     predict_op = tf.argmax(y, 1)
 
-    acc = [0] * 100
-    tracc = [0] * 100
-
+    itr=500
+    acc = [0] * itr
+    tracc = [0] * itr
+    # Launch the graph in a session
     with tf.Session() as sess:
         tf.initialize_all_variables().run()
-        for i in range(100):
+        for i in range(itr):
             sess.run(train_op, feed_dict={x: trX, y_: trY, p_keep_conv: 0.8, p_keep_hidden: 0.8})
             #print(100 * np.mean(np.argmax(teY, axis=1) == sess.run(predict_op, feed_dict={x: teX, y_: teY, p_keep_conv: 1.0, p_keep_hidden: 1.0})))
             acc[i] = 100 * np.mean(np.argmax(teY, axis=1) == sess.run(predict_op, feed_dict={x: teX, y_: teY, p_keep_conv: 1.0, p_keep_hidden: 1.0}))
-
-        sio.savemat('result_sess1_subj%d.mat' % (sub), {"tracc": tracc, "acc": acc})
-
+            tracc[i] = 100 * sess.run(accuracy, feed_dict={x: trX, y_: trY, p_keep_conv: 0.8, p_keep_hidden: 0.8})
+        sio.savemat('result_feature_representation_sess01_subj%d.mat' % (sub), {"tracc": tracc, "acc": acc})
 

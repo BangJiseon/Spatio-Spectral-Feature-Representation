@@ -39,39 +39,22 @@ sorted_band_pre=zeros(numband,2);
 for bb=1:numband
     sorted_band_pre(bb,:)=band(idx_m(1,bb),:);
 end
-clear idx_m max_mut band
+clear idx_m max_mut
 
 %% subject-dependent filter optimization
     %% pre-processing
-numband=25;
-gauss=normrnd(0,2,[numband+300,2]); %k=20
-band_=zeros(numband+300,2);
-band=zeros(numband,2);
+numband=30;
+gauss=normrnd(0,1,[numband+10,2]); %k=20
+band=zeros(numband+10,2);
 
 k=1;
-for aa=1:numband+300
+for aa=1:numband+10
     band_n1=sorted_band_pre(1,1)+gauss(aa,1);
     band_n2=sorted_band_pre(1,2)+gauss(aa,2);
     if (band_n1>0.5) && (band_n2>0.5) && (band_n2-band_n1>1)
-        band_(k,1)=band_n1;
-        band_(k,2)=band_n2;
+        band(k,1)=band_n1;
+        band(k,2)=band_n2;
         k=k+1;
-    end
-end
-
-fg1=2;
-band(1,:)=band_(1,:);
-for aa=1:size(nonzeros(band_(:,1)),1)
-    fg2=1;
-    for bb=1:aa
-        if (abs(((band_(bb,1)+band_(bb,2))/2)-((band_(aa+1,1)+band_(aa+1,2))/2))<0.5) && (abs(band_(bb,1)-band_(aa+1,1))<0.5)
-        else
-        fg2=fg2+1;
-            if (aa==bb) && (fg2==aa+1)
-                band(fg1,:)=band_(aa+1,:);
-                fg1=fg1+1;
-            end 
-        end
     end
 end
 band=band(1:numband,:);

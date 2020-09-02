@@ -3,7 +3,7 @@
 import tensorflow as tf
 import numpy as np
 import scipy.io as sio
-for sub in range(1, 55):  # 1,10
+for sub in range(1, 55):
 
     tf.reset_default_graph()
     tf.set_random_seed(1230)
@@ -24,17 +24,17 @@ for sub in range(1, 55):  # 1,10
         l2a = tf.nn.bias_add(l2a, b2)
         l2a = tf.nn.dropout(l2a, p_keep_conv)
 
-        l2 = tf.reshape(l2a, [-1, w3.get_shape().as_list()[0]])  # reshape to (?, 2048)
+        l2 = tf.reshape(l2a, [-1, w3.get_shape().as_list()[0]])
         l3 = tf.nn.relu(tf.matmul(l2, w3))
         l3 = tf.nn.dropout(l3, p_keep_hidden)
 
         pyx = tf.matmul(l3, w_o)
         return pyx
 
-    trX = trX.reshape(-1, 20, 20, 25, 1)  # input img
-    teX = teX.reshape(-1, 20, 20, 25, 1)  # input img
+    trX = trX.reshape(-1, 20, 20, 25, 1) 
+    teX = teX.reshape(-1, 20, 20, 25, 1) 
 
-    x = tf.placeholder("float", [None, 20, 20, 25, 1])  # 38 19 10  5
+    x = tf.placeholder("float", [None, 20, 20, 25, 1]) 
     y_ = tf.placeholder("float", [None, 2])
     
     kernel1=3

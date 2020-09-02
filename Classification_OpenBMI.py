@@ -42,9 +42,9 @@ for sub in range(1, 55):  # 1,10
     feature_map1=50
     feature_map2=100
 
-    w = tf.get_variable("w", shape=[kernel1, kernel1, kernel2, 1, feature_map1], #[16, 16, 12, 1, 16],
+    w = tf.get_variable("w", shape=[kernel1, kernel1, kernel2, 1, feature_map1],
                         initializer=tf.truncated_normal_initializer(stddev=0.01))
-    w2 = tf.get_variable("w2", shape=[21-kernel1, 21-kernel1, 26-kernel2, feature_map1, feature_map2],#[7, 7, 4, 16, 32],
+    w2 = tf.get_variable("w2", shape=[21-kernel1, 21-kernel1, 26-kernel2, feature_map1, feature_map2],
                          initializer=tf.truncated_normal_initializer(stddev=0.01))
     w3 = tf.get_variable("w3", shape=[feature_map2, feature_map2], initializer=tf.truncated_normal_initializer(stddev=0.01))
     w_o = tf.get_variable("w_o", shape=[feature_map2, 2], initializer=tf.truncated_normal_initializer(stddev=0.01))

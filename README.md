@@ -12,16 +12,17 @@ When using this code in a scientific publication, please cite us as:
 
 >@article{bang2021spatio,
 
-  title={Spatio-spectral feature representation for motor imagery classification using convolutional neural networks},
+>  title={Spatio-spectral feature representation for motor imagery classification using convolutional neural networks},
   
-  author={Bang, Ji-Seon and Lee, Min-Ho and Fazli, Siamac and Guan, Cuntai and Lee, Seong-Whan},
+>  author={Bang, Ji-Seon and Lee, Min-Ho and Fazli, Siamac and Guan, Cuntai and Lee, Seong-Whan},
   
-  journal={IEEE Transactions on Neural Networks and Learning Systems},
+>  journal={IEEE Transactions on Neural Networks and Learning Systems},
   
-  year={2021},
+>  year={2021},
   
-  publisher={IEEE}
-}
+>  publisher={IEEE}
+
+>}
 
 
 ## Modules

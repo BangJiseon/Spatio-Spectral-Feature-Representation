@@ -3,8 +3,9 @@
 ## Journal Publication
 
 **J.-S. Bang, M.-H. Lee, S. Fazli, C. Guan, S.-W. Lee, "Spatio-Spectral Feature Representation for Motor Imagery Classification using Convolutional Neural Networks," IEEE Trans. on Neural Networks and Learning Systems, 2021**
+```
 https://ieeexplore.ieee.org/document/9325918
-
+```
 
 
 ## Citing
